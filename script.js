@@ -26,7 +26,7 @@ function createButtons(){
             var form = document.getElementById("form1");
             var button = document.createElement("button");
             button.appendChild(buttonText);
-            button.setAttribute("id",cities[i])
+            button.setAttribute("value",cities[i])
             button.setAttribute("onclick", "event.preventDefault(); getButtonCity()")
             form.appendChild(button);
         
@@ -70,6 +70,8 @@ apiKey)
     var humid4 = document.getElementById("humid4");
     var humid5 = document.getElementById("humid5");
 
+    var uvi = document.getElementById("uvi");
+
     var dailyHumid = [placeholder, humid1, humid2, humid3, humid4, humid5];
     var dailyTemps = [placeholder, temp1, temp2, temp3, temp4, temp5];
     var icons = [placeholder, icon1, icon2, icon3, icon4, icon5];
@@ -79,15 +81,22 @@ apiKey)
     var icon = data.daily[i].weather[0].icon;
     var temp = data.daily[i].temp.day;
     var humid = data.daily[i].humidity;
+    var uvIndex = data.daily[i].uvi;
 console.log(date)
 console.log(icon)
 console.log(temp)
 console.log(humid)
+console.log(uvIndex)
 days[i].innerHTML= date;
 icons[i].src="http://openweathermap.org/img/wn/"+icon+"@2x.png";
 dailyTemps[i].innerHTML="Temp: "+temp+" °F";
 dailyHumid[i].innerHTML= "Humidity: "+humid+"%";
+uvi.innerHTML= "UV Index: "+ uvIndex;
+if(uvIndex<=3){uvi.setAttribute("style", "background-color: green")}
     }
+if(uvIndex>=4 || uvIndex<=7){uvi.setAttribute("style", "background-color: yellow")}
+
+if(uvIndex>=8){uvi.setAttribute("style", "background-color: red")}
 })
   
 
