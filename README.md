@@ -39,3 +39,9 @@
 
 ## Screenshot
 ![screenshot](photo.png)
+
+## Links
+[Repository](https://github.com/pattymcpat/weather-dashboard)
+
+[Deployed](https://pattymcpat.github.io/weather-dashboard/)
+
