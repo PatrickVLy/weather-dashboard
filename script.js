@@ -45,6 +45,62 @@ function getCurrentCity(){
     localStorage.setItem("cities", JSON.stringify( cities ) );
     addButtons();
     })
-    
-    
     }
+
+    function getForecast(){
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+
+        lon+"&exclude=current,minutely,hourly,alerts&units=imperial&appid="+
+        apiKey)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+              
+            console.log(data);
+            var placeholder;
+            var day1 = document.getElementById("day1");
+            var day2 = document.getElementById("day2");
+            var day3 = document.getElementById("day3");
+            var day4 = document.getElementById("day4");
+            var day5 = document.getElementById("day5");
+            
+            var icon1 = document.getElementById("icon1");
+            var icon2 = document.getElementById("icon2");
+            var icon3 = document.getElementById("icon3");
+            var icon4 = document.getElementById("icon4");
+            var icon5 = document.getElementById("icon5");
+            
+            var temp1 = document.getElementById("temp1");
+            var temp2 = document.getElementById("temp2");
+            var temp3 = document.getElementById("temp3");
+            var temp4 = document.getElementById("temp4");
+            var temp5 = document.getElementById("temp5");
+        
+            var humid1 = document.getElementById("humid1");
+            var humid2 = document.getElementById("humid2");
+            var humid3 = document.getElementById("humid3");
+            var humid4 = document.getElementById("humid4");
+            var humid5 = document.getElementById("humid5");
+        
+            var dailyHumid = [placeholder, humid1, humid2, humid3, humid4, humid5];
+            var dailyTemps = [placeholder, temp1, temp2, temp3, temp4, temp5];
+            var icons = [placeholder, icon1, icon2, icon3, icon4, icon5];
+            var days = [placeholder, day1, day2, day3, day4, day5];
+            for (var i = 1; i<data.daily.length-2; i++){
+            var date = moment.unix(data.daily[i].dt).format("M/D/YYYY");
+            var icon = data.daily[i].weather[0].icon;
+            var temp = data.daily[i].temp.day;
+            var humid = data.daily[i].humidity;
+        console.log(date)
+        console.log(icon)
+        console.log(temp)
+        console.log(humid)
+        days[i].innerHTML= date;
+        icons[i].src="http://openweathermap.org/img/wn/"+icon+"@2x.png";
+        dailyTemps[i].innerHTML="Temp: "+temp+" °F";
+        dailyHumid[i].innerHTML= "Humidity: "+humid+"%";
+            }
+        })
+          
+        
+        }
