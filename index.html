@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid bg">
+        <div class="container p-3 mb-2 bg-primary text-white">
+       <h1 class="display-4">Weather Dashboard</h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-2 p-3 mb-2 bg-light text-dark">
+            <h4>Search for a City:</h4>
+            <form id="form1">
+                <input type="text" id="city"><br><br>
+                <button id ="submit">submit</button><br><br>
+            </form>
+          </div>
+          <div class="col-10 p-3 mb-2 bg-white text-dark"><h1 id="currentCity"></h1>
+            <img id="icon" src="">
+            <h3 id ="currentTemp"></h3>
+            <h3 id ="currentHumidity"></h3>
+            <h3 id ="ws"></h3>
+            <h3 id ="currentHumidity"></h3>
+          </div>
+        </div>
+        <div id ="forecast" class="d-flex justify-content-between" style="visibility: hidden">
+            <div class ="col-2 p-3 mb-2" id="spaceholder"> </div>
+            <div class="col-2 p-3 mb-2 text-white bg-primary">
+                <h4 id="day1">Day 1</h4>
+                <img id="icon1" src="">
+                <h5 id="temp1"> </h5>
+                <h5 id="humid1">  </h5>
+            </div>
+            <div class="col-2 p-3 mb-2 text-white bg-primary">
+                <h4 id="day2">Day 2</h4>
+                <img id="icon2" src="">
+                <h5 id="temp2"> </h5>
+                <h5 id="humid2">  </h5>
+            </div>
+            <div class="col-2 p-3 mb-2 text-white bg-primary">
+                <h4 id="day3">Day 3</h4>
+                <img id="icon3" src="">
+                <h5 id="temp3"> </h5>
+                <h5 id="humid3">  </h5>
+            </div>
+            <div class="col-2 p-3 mb-2 text-white bg-primary">
+                <h4 id="day4">Day 4</h4>
+                <img id="icon4" src="">
+                <h5 id="temp4"> </h5>
+                <h5 id="humid4">  </h5>
+            </div>
+            <div class="col-2 p-3 mb-2 text-white bg-primary">
+                <h4 id="day5">Day 5</h4>
+                <img id="icon5" src="">
+                <h5 id="temp5"> </h5>
+                <h5 id="humid5">  </h5>
+            </div>
+        </div>
+      </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
