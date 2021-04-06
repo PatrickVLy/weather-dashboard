@@ -23,5 +23,9 @@
 1. first what I did was created an html file with the elements I wanted, search bar, current weather, and 5 day forcast. 
 2. in the js file I created a variable with the api key that I got from open weather. 
 3. I created a function that would pull the user input field and store that into a variable. Then using the user input plug that into the fetch URL to get back a JSON format of the data
-4. I parsed through the data returned and set them variables I created to individual data points I wanted to highlight: current temp, humidity and windspeed.
-5.  
+4. I parsed through the data returned and set them to variables I created to individual data points I wanted to highlight: current temp, humidity and windspeed. Once I have these variables set, I used innerHTML to add them to the DOM
+5.  I created a function to pull the 5 day forcast to get back a JSON format that I can pull data from. once I had the data stored into variables I used innerHTML to display them on the DOM
+6. Created a Function to add a new button element everytime the submit button is pressed with with the value of the input box. 
+7. used localstorage.setitem in the get current city function to store the searched cities in an array
+8. used localstorage.getitem to pull from the search cities array once the page loads and create buttons for every item in the array. 
+
