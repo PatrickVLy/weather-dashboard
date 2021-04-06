@@ -29,3 +29,13 @@
 7. used localstorage.setitem in the get current city function to store the searched cities in an array
 8. used localstorage.getitem to pull from the search cities array once the page loads and create buttons for every item in the array. 
 
+## Technology Used
+1. HTML
+2. CSS
+3. Bootstrap framework for CSS
+4. Javascript
+5. OpenWeather API
+6. moment.js
+
+## Screenshot
+![screenshot](photo.png)
