@@ -6,6 +6,35 @@ var forecastRow = document.getElementById("forecast");
 var searchHistory = localStorage.getItem("cities");
 var cities;
 
+if(searchHistory === null){
+    cities = [];
+}
+
+else{cities = JSON.parse( searchHistory );}
+
+function addButtons(){
+    var buttonText = document.createTextNode(cityName);
+    var form = document.getElementById("form1");
+    var button = document.createElement("button");
+    button.appendChild(buttonText);
+    form.appendChild(button);}
+
+function createButtons(){
+    for(var i =0; i<cities.length; i++){
+        function addButton(){
+            var buttonText = document.createTextNode(cities[i]);
+            var form = document.getElementById("form1");
+            var button = document.createElement("button");
+            button.appendChild(buttonText);
+            button.setAttribute("value",cities[i])
+            button.setAttribute("onclick", "event.preventDefault(); getButtonCity()")
+            form.appendChild(button);
+        
+        }
+            addButton();
+    }
+            }
+
 function getCurrentCity(){
     var inputCity = document.getElementById("city").value;
     fetch("https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&appid="+apiKey)
@@ -101,6 +130,4 @@ function getCurrentCity(){
         dailyHumid[i].innerHTML= "Humidity: "+humid+"%";
             }
         })
-          
-        
         }
